@@ -20,7 +20,7 @@ class NoteList extends StatefulWidget {
 
 class NoteListState extends State<NoteList> {
   DatabaseHelper helper = DatabaseHelper.getInstance();
-  List<Notes> noteList = List<Notes>(); //error
+  List<Notes> noteList ; //error
   int count = 0;
 
   @override

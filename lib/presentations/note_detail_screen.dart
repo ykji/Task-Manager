@@ -19,7 +19,7 @@ class NoteDetail extends StatefulWidget {
 }
 
 class NoteDetailState extends State<NoteDetail> {
-  static var _priorityOption = ['High', 'Low'];
+  static var _priorityOption = ['A', 'B', 'C', 'D', 'E'];
   DatabaseHelper helper = DatabaseHelper.getInstance();
   String appBarTitle;
   Notes note;
@@ -67,9 +67,9 @@ class NoteDetailState extends State<NoteDetail> {
                             value: dropDownStringItem,
                             child: Text(dropDownStringItem,
                                 style: TextStyle(
-                                    fontSize: 20.0,
+                                    fontSize: ScreenUtil().setSp(25),
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.red)),
+                                    color: Colors.lightBlue)),
                           );
                         }).toList(),
                         value: getPriority(note.priority),
@@ -212,10 +212,16 @@ class NoteDetailState extends State<NoteDetail> {
   }
 
   void updatePriorityAsInt(String val) {
-    if (val == 'High')
+    if (val == 'A')
       note.priority = 1;
-    else
+    else if (val == 'B')
       note.priority = 2;
+    else if (val == 'C')
+      note.priority = 3;
+    else if (val == 'D')
+      note.priority = 4;
+    else
+      note.priority = 5;
   }
 
 //getting data from database,so converting it into high/low for user

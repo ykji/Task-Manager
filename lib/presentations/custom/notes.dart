@@ -40,7 +40,11 @@ class Notes {
 
   set priority(newPriority) {
     //  priority changes for ABCD
-    if (newPriority == 1 || newPriority == 2) this._priority = newPriority;
+    if (newPriority == 1 ||
+        newPriority == 2 ||
+        newPriority == 3 ||
+        newPriority == 4 ||
+        newPriority == 5) this._priority = newPriority;
   }
 
   // converted notes' object to map object
