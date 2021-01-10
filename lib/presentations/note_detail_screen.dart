@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:task_manager/presentations/custom/abcde_drawer.dart';
 import 'package:task_manager/presentations/custom/custom_raised_buttton.dart';
 import 'package:task_manager/presentations/custom/custom_textfield.dart';
 import 'package:task_manager/presentations/custom/screen_argument.dart';
@@ -42,22 +43,26 @@ class NoteDetailState extends State<NoteDetail> {
     return WillPopScope(
         onWillPop: moveToLastScreen,
         child: Scaffold(
+          drawer: DrawerABCDE(),
           backgroundColor: Colors.blueGrey[100],
           appBar: AppBar(
             centerTitle: true,
             title: Text(appBarTitle),
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: moveToLastScreen,
-            ),
+            // leading: IconButton(
+            //   icon: Icon(Icons.arrow_back),
+            //   onPressed: moveToLastScreen,
+            // ),
           ),
-          body: Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: ScreenUtil().setWidth(20),
-              vertical: ScreenUtil().setHeight(50),
-            ),
-            child: Center(
-              child: ListView(
+          body: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+            },
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(
+                horizontal: ScreenUtil().setWidth(20),
+                vertical: ScreenUtil().setHeight(50),
+              ),
+              child: Column(
                 children: <Widget>[
                   ListTile(
                     leading: const Icon(Icons.low_priority),
@@ -157,19 +162,12 @@ class NoteDetailState extends State<NoteDetail> {
   }
 
   void _showAlertDialog(String title, String message) {
-//    AlertDialog alertDialog = AlertDialog(
-//      title: Text(title),
-//      content: Text(message),
-//    );
-
-//    showDialog(context: context, builder: (_) => alertDialog);
-
     Fluttertoast.showToast(
-        msg: title + "\n" + message,
+        msg: message,
         toastLength: Toast.LENGTH_SHORT,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0);
+        backgroundColor: Colors.transparent,
+        textColor: Colors.black,
+        fontSize: ScreenUtil().setSp(20));
   }
 
   _save() async {

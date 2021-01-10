@@ -10,4 +10,5 @@ abstract class Styles {
 
   //  ASSETS
   static const String greyCar = 'assets/grey_car.png';
+  static const String appLogo = "assets/icon/task_logo.png";
 }

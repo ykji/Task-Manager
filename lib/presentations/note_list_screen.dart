@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:task_manager/presentations/custom/abcde_drawer.dart';
 import 'package:task_manager/presentations/custom/custom_raised_buttton.dart';
 import 'package:task_manager/presentations/custom/note_card.dart';
 import 'package:task_manager/presentations/custom/screen_argument.dart';
@@ -19,8 +20,9 @@ class NoteList extends StatefulWidget {
 }
 
 class NoteListState extends State<NoteList> {
+  bool isLoading = false;
   DatabaseHelper helper = DatabaseHelper.getInstance();
-  List<Notes> noteList ; //error
+  List<Notes> noteList; //error
   int count = 0;
 
   @override
@@ -28,14 +30,18 @@ class NoteListState extends State<NoteList> {
     if (noteList == null) {
       this.noteList = List<Notes>();
       updateListViewVariables();
+      isLoading = true;
     }
     return Scaffold(
+      drawer: DrawerABCDE(),
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         centerTitle: true,
         title: Text(StringValue.appTitle),
       ),
-      body: getNoteListView(),
+      body: isLoading
+          ? getNoteListView()
+          : Center(child: CircularProgressIndicator()),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () =>
@@ -66,6 +72,31 @@ class NoteListState extends State<NoteList> {
         });
       });
     });
+  }
+
+  showDialogBox(context) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(StringValue.clearWord),
+        content: Text(StringValue.clearQ),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+            child: Text(StringValue.cancelWord),
+          ),
+          FlatButton(
+            onPressed: () {
+              _clear();
+              Navigator.of(ctx).pop();
+            },
+            child: Text(StringValue.clearWord),
+          ),
+        ],
+      ),
+    );
   }
 
   _clear() async {
@@ -106,9 +137,7 @@ class NoteListState extends State<NoteList> {
             childText: StringValue.clearWord,
             onPressed: () {
               print("clear click");
-              setState(() {
-                _clear();
-              });
+              showDialogBox(context);
             },
           ),
         ),
