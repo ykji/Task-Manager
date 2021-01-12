@@ -1,16 +1,21 @@
-# task_manager
+# Task Manager - ABCDE
 
-A new Flutter project.
+My First Flutter project.<br />
+<img src="assets/icon/task_logo.png" title="App Logo" width="80">
 
-## Getting Started
+**What is ABCDE?**<br />
+The ABCDE Method is a powerful priority setting technique that you can use every single day. This technique is so simple and effective that it can, all by itself, make you one of the most efficient and effective people in your field.
 
-This project is a starting point for a Flutter application.
+# Screenshots :
 
-A few resources to get you started if this is your first Flutter project:
+<img src="assets/Screenshots/splash_page.jpg" title="Splash Page" width="200" height="420">&nbsp;&nbsp;&nbsp;
+<img src="assets/Screenshots/drawer.jpg" title="Explanation on Drawer" width="200" height="420">&nbsp;&nbsp;&nbsp;
+<img src="assets/Screenshots/adding_task.jpg" title="Adding Task" width="200" height="420"><br />
+<img src="assets/Screenshots/choosing_priority.jpg" title="Choosing Priority" width="200" height="420">&nbsp;&nbsp;&nbsp;
+<img src="assets/Screenshots/clear_button.jpg" title="Clear Button" width="200" height="420">&nbsp;&nbsp;&nbsp;
+<img src="assets/Screenshots/displaying_tasks.jpg" title="All Tasks Sorted According to priority chosen" width="200" height="420">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+My Profiles :
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [LinkedIn](https://www.linkedin.com/in/yash-varshney/)
+- [Codeforces](https://codeforces.com/profile/__ykji)
