@@ -1,6 +1,6 @@
 # Task Manager - ABCDE
 
-My First Flutter project.<br />
+My First Flutter project.<br /><br />
 <img src="assets/icon/task_logo.png" title="App Logo" width="80">
 
 **What is ABCDE?**<br />
